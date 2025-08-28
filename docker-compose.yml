@@ -4,7 +4,7 @@ services:
     image: php:7.3-apache
     container_name: hello-docker
     ports:
-      - "${APP_PORT}:80"
+      - "${APP_PORT}:443"
     volumes:
       - /home/portainer/www/html:/var/www/html
     restart: unless-stopped
