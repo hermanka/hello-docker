@@ -3,10 +3,8 @@ services:
   php:
     image: php:7.3-apache
     container_name: hello-docker
-    env_file:
-      - stack.env
     ports:
       - "${APP_PORT}:80"
     volumes:
-      - ./public:/var/www/html
+      - /home/portainer/www/html:/var/www/html
     restart: unless-stopped
