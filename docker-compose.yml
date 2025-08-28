@@ -1,0 +1,16 @@
+version: '3'
+services:
+  php:
+    image: php:7.3-apache
+    container_name: hello-docker
+    ports:
+      - "3000:80"
+    volumes:
+      - ./public:/var/www/html
+    networks:
+      - pangolin
+    restart: unless-stopped
+
+networks:
+  pangolin:
+    external: true
