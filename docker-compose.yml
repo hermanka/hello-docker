@@ -15,3 +15,9 @@ services:
             - 443:443
         volumes:
             - /home/portainer/hello-docker/nginx.conf:/etc/nginx/nginx.conf
+        networks:
+            - pangolin
+
+networks:
+  pangolin:
+    external: true
