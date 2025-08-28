@@ -14,4 +14,13 @@ services:
             - 80:80
             - 443:443
         volumes:
-            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - /home/portainer/hello-docker/nginx.conf:/etc/nginx/nginx.conf
+            - /home/portainer/hello-docker/certbot/conf:/etc/letsencrypt
+            - /home/portainer/hello-docker/certbot/www:/var/www/certbot
+    certbot:
+        image: certbot/certbot
+        container_name: certbot
+        volumes: 
+            - /home/portainer/hello-docker/certbot/conf:/etc/letsencrypt
+            - /home/portainer/hello-docker/certbot/www:/var/www/certbot
+        command: certonly --webroot -w /var/www/certbot --force-renewal --email hermanka.beta@gmail.com -d vote.demo.plutolab.my.id --agree-tos
