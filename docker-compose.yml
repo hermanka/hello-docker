@@ -1,10 +1,17 @@
 version: '3'
 services:
-  php:
-    image: php:7.3-apache
-    container_name: hello-docker
-    ports:
-      - "${APP_PORT}:443"
-    volumes:
-      - /home/portainer/www/html:/var/www/html
-    restart: unless-stopped
+    helloworld:
+        container_name: helloworld
+        image: crccheck/hello-world
+        expose:
+            - 8000
+
+    nginx:
+        container_name: nginx
+        restart: unless-stopped
+        image: nginx
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
