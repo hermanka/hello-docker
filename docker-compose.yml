@@ -1,10 +1,11 @@
-version: '3'
 services:
     helloworld:
         container_name: helloworld
         image: crccheck/hello-world
         expose:
             - 8000
+        networks:
+            - pangolin
 
     nginx:
         container_name: nginx
