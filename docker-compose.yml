@@ -7,10 +7,4 @@ services:
       - "${APP_PORT}:80"
     volumes:
       - ./public:/var/www/html
-    networks:
-      - pangolin
     restart: unless-stopped
-
-networks:
-  pangolin:
-    external: true
